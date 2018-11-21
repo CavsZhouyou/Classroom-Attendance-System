@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-08-25 23:36:42 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 11:10:19
+ * @Last Modified time: 2018-11-21 14:22:16
  */
 
 
@@ -112,13 +112,7 @@ export default {
   computed: {
     ...mapGetters(["userName"])
   },
-  mounted() {
-    // 获取字典信息
-    this.getDictionaries();
-  },
   methods: {
-    ...mapActions(["getDictionaries"]),
-
     /**
      * @description 退出登录
      */
@@ -151,13 +145,11 @@ $logo_url: "../assets/images/logo.png";
 
 .logo {
   margin: 16px;
-  height: 60px;
+  height: 50px;
 
   /* logo 图片 */
-  background-color: $background_color;
   background-image: url($logo_url);
-  background-position: -10px;
-  background-size: 250px 60px;
+  background-size: 238px 50px;
 }
 
 .sub-title {

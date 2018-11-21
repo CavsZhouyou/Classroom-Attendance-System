@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-08-29 20:29:49 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 11:05:40
+ * @Last Modified time: 2018-11-21 11:28:29
  */
 
 /** LoginPage */
@@ -15,8 +15,9 @@ export const MES_LOGIN_PAGE_PATH = "/";
 export const MES_HOME_PAGE_PATH = "/HomePage";
 
 
-/** SystemLogListPge */
+/** Course Attendance Pge */
 export const CLASS_COURSE_ATTENDANCE_LIST_PAGE_PATH = "/HomePage/";
+export const CLASS_COURSE_ATTENDANCE_DETAIL_PAGE_PATH = "/HomePage/CourseAttendanceDetailPage";
 
 
 /** Course Page */

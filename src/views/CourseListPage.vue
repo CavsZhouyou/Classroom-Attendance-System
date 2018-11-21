@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-11-21 09:47:34 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 10:38:48
+ * @Last Modified time: 2018-11-21 11:29:45
  */
 
 
@@ -229,14 +229,7 @@ export default {
      * @description 跳转到课程编辑页面
      * @param {Integar} 课程 id
      */
-    modifyCourse(CourseId = 0) {
-      this.$router.push({
-        path: paths.CLASS_COURSE_MODIFY_PAGE_PATH,
-        query: {
-          CourseId: CourseId
-        }
-      });
-    }
+    modifyCourse(CourseId = 0) {}
   }
 };
 </script>

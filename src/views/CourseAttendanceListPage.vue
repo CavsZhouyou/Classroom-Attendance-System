@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-11-21 10:48:28 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 11:13:46
+ * @Last Modified time: 2018-11-21 11:30:36
  */
 
 
@@ -36,6 +36,7 @@
 import qs from "qs";
 import { mapGetters } from "vuex";
 import * as urls from "../js/post_urls.js";
+import * as paths from "../js/router_paths.js";
 
 const columns = [
   {
@@ -220,7 +221,9 @@ export default {
      * @description 查看考勤情况
      * @param {Object} params 参数信息
      */
-    showAttendance(params = {}) {}
+    showAttendance(params = {}) {
+      this.$router.push(paths.CLASS_COURSE_ATTENDANCE_DETAIL_PAGE_PATH);
+    }
   }
 };
 </script>
