@@ -1,19 +1,20 @@
 /*
  * @Author: zhouyou@werun 
- * @Descriptions: 系统日志列表页面 
+ * @Descriptions: 课程考勤列表 
  * @TodoList: 无
- * @Date: 2018-08-26 22:01:23 
+ * @Date: 2018-11-21 10:48:28 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-10-05 20:33:16
+ * @Last Modified time: 2018-11-21 11:02:50
  */
 
+
 <template>
-  <div id="system-log-list-page">
+  <div id="course-attance-list-page">
     <a-tabs class="tab-list"
             defaultActiveKey="1">
-      <a-tab-pane tab="系统日志列表"
+      <a-tab-pane tab="课程考勤列表"
                   key="1">
-        <!-- 系统日志列表 -->
+        <!-- 课程考勤列表 -->
         <a-table :columns="columns"
                  :rowKey="record => record.id"
                  :dataSource="data"
@@ -38,31 +39,62 @@ import * as urls from "../js/post_urls.js";
 
 const columns = [
   {
-    title: "时间",
-    dataIndex: "operationTime",
-    width: "20%",
-    align: "center"
-  },
-  {
-    title: "请求url",
-    dataIndex: "url",
-    width: "40%",
-    align: "center"
-  },
-  {
-    title: "请求用时",
-    dataIndex: "costTime",
+    title: "课程号",
+    dataIndex: "courseNumber",
     width: "10%",
     align: "center"
   },
   {
-    title: "来源ip",
-    dataIndex: "ipAddress",
-    width: "20%",
+    title: "课程名称",
+    dataIndex: "courseName",
+    width: "10%",
     align: "center"
   },
   {
-    title: "参数",
+    title: "课程方向",
+    dataIndex: "courseMajor",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "任课老师",
+    dataIndex: "teacher",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "课程地点",
+    dataIndex: "courseAddress",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "课程时间",
+    dataIndex: "courseTime",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "上课班级",
+    dataIndex: "courseClass",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "考勤状态",
+    dataIndex: "attanceStatus",
+    width: "10%",
+    align: "center"
+  },
+  {
+    title: "考勤人数",
+    dataIndex: "attanceNumber",
+    width: "10%",
+    align: "center"
+  },
+
+  {
+    title: "操作",
     key: "action",
     width: "10%",
     align: "center",
@@ -71,7 +103,7 @@ const columns = [
 ];
 
 export default {
-  name: "SystemLogListPage",
+  name: "CourseAttanceListPage",
   data() {
     return {
       data: [],
@@ -110,33 +142,78 @@ export default {
      * @description 获取列表数据
      */
     fetch() {
-      let postData = {
-        start: this.pagination.current,
-        sort: "operationTime",
-        dir: "desc",
-        limit: this.pagination.pageSize,
-        workerId: this.userID
-      };
-
       this.loading = true;
-
-      this.$axios
-        .post(urls.MES_GET_SYSTEM_LOG_URL, qs.stringify(postData))
-        .then(response => {
-          let data = response.data;
-
-          this.loading = false;
-
-          // 更新列表数据
-          this.data = data.result;
-          this.pagination.total = data.totalCount;
-        })
-        .catch(error => {
-          this.$message.error("网络错误！");
-          setTimeout(() => {
-            this.loading = false;
-          }, 1000);
-        });
+      let data = [
+        {
+          courseNumber: "H75389514",
+          courseName: "云计算概论",
+          courseMajor: "软件工程",
+          teacher: "朴雪峰",
+          courseAddress: "研究院中507",
+          courseTime: "2018-11-12 14:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "进行中",
+          attanceNumber: "160/182"
+        },
+        {
+          courseNumber: "H89384564",
+          courseName: "JavaEE程序设计",
+          courseMajor: "软件工程",
+          teacher: "朱东杰",
+          courseAddress: "研究院中517",
+          courseTime: "2018-11-13 10:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "未开始",
+          attanceNumber: "0/182"
+        },
+        {
+          courseNumber: "H7987431",
+          courseName: "编译原理",
+          courseMajor: "软件工程",
+          teacher: "韩希先",
+          courseAddress: "G楼105",
+          courseTime: "2018-11-14 10:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "未开始",
+          attanceNumber: "0/182"
+        },
+        {
+          courseNumber: "H7456514",
+          courseName: "互联网技术",
+          courseMajor: "软件工程",
+          teacher: "吴振大",
+          courseAddress: "研究院中517",
+          courseTime: "2018-11-15 2:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "未开始",
+          attanceNumber: "0/182"
+        },
+        {
+          courseNumber: "H21389514",
+          courseName: "算法导论",
+          courseMajor: "软件工程",
+          teacher: "权光日",
+          courseAddress: "M楼301",
+          courseTime: "2018-11-20 2:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "未开始",
+          attanceNumber: "0/182"
+        },
+        {
+          courseNumber: "H55389514",
+          courseName: "概率论",
+          courseMajor: "通识",
+          teacher: "王传才",
+          courseAddress: "M楼107",
+          courseTime: "2018-11-21 下午2:00",
+          courseClass: "1611101-1611105",
+          attanceStatus: "未开始",
+          attanceNumber: "0/182"
+        }
+      ];
+      this.data = data;
+      this.loading = false;
+      this.pagination.total = 6;
     },
 
     /**

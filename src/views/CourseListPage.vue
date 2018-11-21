@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-11-21 09:47:34 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 10:24:20
+ * @Last Modified time: 2018-11-21 10:38:48
  */
 
 
@@ -85,6 +85,12 @@ const columns = [
     align: "center"
   },
   {
+    title: "上课班级",
+    dataIndex: "courseClass",
+    width: "10%",
+    align: "center"
+  },
+  {
     title: "操作",
     key: "action",
     width: "10%",
@@ -143,7 +149,8 @@ export default {
           teacher: "朴雪峰",
           courseAddress: "研究院中507",
           courseDate: "10-15周",
-          courseTime: "周一 下午2:00"
+          courseTime: "周一 下午2:00",
+          courseClass: "1611101-1611105"
         },
         {
           courseNumber: "H89384564",
@@ -152,7 +159,8 @@ export default {
           teacher: "朱东杰",
           courseAddress: "研究院中517",
           courseDate: "8-13周",
-          courseTime: "周二 上午10:00"
+          courseTime: "周二 上午10:00",
+          courseClass: "1611101-1611105"
         },
         {
           courseNumber: "H7987431",
@@ -161,7 +169,8 @@ export default {
           teacher: "韩希先",
           courseAddress: "G楼105",
           courseDate: "5-15周",
-          courseTime: "周三 上午10:00"
+          courseTime: "周三 上午10:00",
+          courseClass: "1611101-1611105"
         },
         {
           courseNumber: "H7456514",
@@ -170,7 +179,8 @@ export default {
           teacher: "吴振大",
           courseAddress: "研究院中517",
           courseDate: "10-15周",
-          courseTime: "周一 下午2:00"
+          courseTime: "周一 下午2:00",
+          courseClass: "1611101-1611105"
         },
         {
           courseNumber: "H21389514",
@@ -179,7 +189,8 @@ export default {
           teacher: "权光日",
           courseAddress: "M楼301",
           courseDate: "1-10周",
-          courseTime: "周一 下午2:00"
+          courseTime: "周一 下午2:00",
+          courseClass: "1611101-1611105"
         },
         {
           courseNumber: "H55389514",
@@ -188,12 +199,13 @@ export default {
           teacher: "王传才",
           courseAddress: "M楼107",
           courseDate: "1-12周",
-          courseTime: "周一 下午2:00"
+          courseTime: "周一 下午2:00",
+          courseClass: "1611101-1611105"
         }
       ];
       this.data = data;
       this.loading = false;
-      this.pagination.total = 1;
+      this.pagination.total = 6;
     },
 
     /**

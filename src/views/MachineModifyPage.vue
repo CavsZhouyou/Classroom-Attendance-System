@@ -1,29 +1,29 @@
 /*
  * @Author: zhouyou@werun 
- * @Descriptions: 机器信息修改页面 
+ * @Descriptions: 课程信息修改页面 
  * @TodoList: 无
  * @Date: 2018-08-26 22:37:17 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-10-05 19:55:40
+ * @Last Modified time: 2018-11-21 10:40:55
  */
 
 <template>
-  <div id="machine-modify-page">
+  <div id="course-modify-page">
     <a-tabs class="tab-list"
             defaultActiveKey="1">
-      <a-tab-pane tab="机器信息修改"
+      <a-tab-pane tab="课程信息修改"
                   key="1">
         <!-- 机器信息修改表单 -->
-        <a-form id="modify-machine-form"
-                @submit="modifyMachine"
+        <a-form id="modify-course-form"
+                @submit="modifyCourse"
                 :autoFormCreate="(form)=>{this.form = form}">
-          <a-form-item label='机器名称：'
+          <a-form-item label='课程号：'
                        :labelCol="{ span: 5 }"
                        :wrapperCol="{ span: 12 }"
-                       fieldDecoratorId="machineName"
-                       :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入机器名称！' }]}">
+                       fieldDecoratorId="courseName"
+                       :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入课程号！' }]}">
             <a-input placeholder="请输入机器名称"
-                     v-model="machineName" />
+                     v-model="courseName" />
           </a-form-item>
           <a-form-item label='mac地址：'
                        :labelCol="{ span: 5 }"
@@ -48,11 +48,11 @@
           <a-form-item label='产品线：'
                        :labelCol="{ span: 5 }"
                        :wrapperCol="{ span: 12 }"
-                       fieldDecoratorId="machineTypeCode"
+                       fieldDecoratorId="courseTypeCode"
                        :fieldDecoratorOptions="{rules: [{ required: true, message: '请选择产品线！' }]}">
             <a-select placeholder='请选择产品线'
-                      v-model="machineTypeCode">
-              <a-select-option v-for="(item, index) in machineTypeList"
+                      v-model="courseTypeCode">
+              <a-select-option v-for="(item, index) in courseTypeList"
                                :key="index"
                                :value='item.dicCode'>{{item.dicName}}</a-select-option>
             </a-select>
@@ -79,45 +79,45 @@ import * as urls from "../js/post_urls.js";
 import * as paths from "../js/router_paths.js";
 
 export default {
-  name: "MachineModifyPage",
+  name: "courseModifyPage",
   data() {
     return {
-      machineName: "",
+      courseName: "",
       macAddress: "",
       processCode: "",
-      machineTypeCode: "",
+      courseTypeCode: "",
 
       loading: false
     };
   },
   computed: {
-    ...mapGetters(["userID", "processList", "machineTypeList"])
+    ...mapGetters(["userID", "processList", "courseTypeList"])
   },
   mounted() {
     // 获取机器信息
-    this.getMachine();
+    this.getcourse();
   },
   methods: {
     /**
      * @description 获取机器信息
      */
-    getMachine() {
+    getcourse() {
       let postData = {
-        machineId: this.$route.query.machineId,
+        courseId: this.$route.query.courseId,
         workerId: this.userID
       };
 
       this.$axios
-        .post(urls.MES_GET_MACHINE_INFO_URL, qs.stringify(postData))
+        .post(urls.MES_GET_course_INFO_URL, qs.stringify(postData))
         .then(response => {
           let data = response.data;
 
           if (data.success) {
             // 赋值机器信息
-            this.machineName = data.data.machineCode;
+            this.courseName = data.data.courseCode;
             this.macAddress = data.data.mac;
             this.processCode = data.data.process;
-            this.machineTypeCode = data.data.type;
+            this.courseTypeCode = data.data.type;
             this.setMchineFormData();
           }
         })
@@ -129,18 +129,18 @@ export default {
     /**
      * @description 修改机器信息
      */
-    modifyMachine() {
+    modifycourse() {
       // 阻止表单默认提交行为
       event.preventDefault();
 
       const self = this;
       let postData = {
-        machineName: this.machineName,
+        courseName: this.courseName,
         macAddress: this.macAddress,
         processCode: this.processCode,
-        machineTypeCode: this.machineTypeCode,
+        courseTypeCode: this.courseTypeCode,
         workerId: this.userID,
-        machineId: this.$route.query.machineId
+        courseId: this.$route.query.courseId
       };
 
       this.form.validateFields((error, values) => {
@@ -151,13 +151,13 @@ export default {
             onOk() {
               self.loading = true;
               self.$axios
-                .post(urls.MES_MODIFY_MACHINE_URL, qs.stringify(postData))
+                .post(urls.MES_MODIFY_course_URL, qs.stringify(postData))
                 .then(response => {
                   let data = response.data;
 
                   if (data.success) {
                     self.$message.success("修改成功！");
-                    self.$router.push(paths.MES_MACHINE_LIST_PAGE_PATH);
+                    self.$router.push(paths.MES_course_LIST_PAGE_PATH);
                   } else {
                     self.$message.error("修改失败！");
                     self.loading = false;
@@ -180,10 +180,10 @@ export default {
      */
     setMchineFormData() {
       this.form.setFieldsValue({
-        machineName: this.machineName,
+        courseName: this.courseName,
         macAddress: this.macAddress,
         processCode: this.processCode,
-        machineTypeCode: this.machineTypeCode
+        courseTypeCode: this.courseTypeCode
       });
     }
   }
@@ -198,7 +198,7 @@ export default {
   text-align: left;
 }
 
-#modify-machine-form {
+#modify-course-form {
   margin-top: 25px;
 }
 
