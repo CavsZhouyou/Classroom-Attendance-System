@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-08-29 20:29:49 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 09:26:31
+ * @Last Modified time: 2018-11-21 10:13:37
  */
 
 /** LoginPage */
@@ -19,8 +19,8 @@ export const MES_HOME_PAGE_PATH = "/HomePage";
 export const MES_SYSTEM_LOG_PAGE_PATH = "/HomePage/";
 
 
-/** Machine Page */
-export const MES_MACHINE_LIST_PAGE_PATH = "/HomePage/MachineListPage";
+/** Course Page */
+export const CLASS_COURSE_LIST_PAGE_PATH = "/HomePage/CourseListPage";
 export const MES_MACHINE_ADD_PAGE_PATH = "/HomePage/MachineAddPage";
 export const MES_MACHINE_MODIFY_PAGE_PATH = "/HomePage/MachineModifyPage";
 

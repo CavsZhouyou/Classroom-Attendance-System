@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-08-25 23:36:42 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 09:26:51
+ * @Last Modified time: 2018-11-21 10:14:06
  */
 
 
@@ -40,7 +40,7 @@
               </span>
             </span>
             <a-menu-item key="2">
-              <router-link :to="paths.MES_MACHINE_LIST_PAGE_PATH">课程列表</router-link>
+              <router-link :to="paths.CLASS_COURSE_LIST_PAGE_PATH">课程列表</router-link>
             </a-menu-item>
             <a-menu-item key="3">
               <router-link :to="paths.MES_MACHINE_ADD_PAGE_PATH">添加课程</router-link>

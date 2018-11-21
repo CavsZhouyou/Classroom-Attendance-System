@@ -3,7 +3,7 @@
  * @Descriptions: 页面路由配置文件
  * @Date: 2018-08-25 21:01:37 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 09:28:39
+ * @Last Modified time: 2018-11-21 10:12:28
  */
 
 
@@ -14,7 +14,7 @@ import HomePage from './views/HomePage';
 import SystemLogListPage from './views/SystemLogListPage';
 import MachineAddPage from './views/MachineAddPage';
 import MachineModifyPage from './views/MachineModifyPage';
-import MachineListPage from './views/MachineListPage';
+import CourseListPage from './views/CourseListPage';
 import ModifyUserInformationPage from './views/ModifyUserInformationPage'
 
 Vue.use(Router);
@@ -33,9 +33,9 @@ export default new Router({
         name: "SystemLogListPage",
         component: SystemLogListPage,
       }, {
-        path: "MachineListPage",
-        name: "MachineListPage",
-        component: MachineListPage,
+        path: "CourseListPage",
+        name: "CourseListPage",
+        component: CourseListPage,
       }, {
         path: "MachineAddPage",
         name: "MachineAddPage",
