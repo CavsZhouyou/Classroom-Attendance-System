@@ -4,7 +4,7 @@
  * @TodoList: 无
  * @Date: 2018-08-25 23:36:42 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 10:47:40
+ * @Last Modified time: 2018-11-21 11:10:19
  */
 
 
@@ -29,7 +29,7 @@
               <span class="sub-title">考勤管理</span>
             </span>
             <a-menu-item key="1">
-              <router-link :to="paths.MES_SYSTEM_LOG_PAGE_PATH">课程考勤列表</router-link>
+              <router-link :to="paths.CLASS_COURSE_ATTENDANCE_LIST_PAGE_PATH">课程考勤列表</router-link>
             </a-menu-item>
           </a-sub-menu>
           <a-sub-menu key="sub2">

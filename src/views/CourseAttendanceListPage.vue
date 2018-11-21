@@ -4,12 +4,12 @@
  * @TodoList: 无
  * @Date: 2018-11-21 10:48:28 
  * @Last Modified by: zhouyou@werun
- * @Last Modified time: 2018-11-21 11:02:50
+ * @Last Modified time: 2018-11-21 11:13:46
  */
 
 
 <template>
-  <div id="course-attance-list-page">
+  <div id="course-attendance-list-page">
     <a-tabs class="tab-list"
             defaultActiveKey="1">
       <a-tab-pane tab="课程考勤列表"
@@ -24,7 +24,7 @@
           <span slot="action"
                 slot-scope="text, record">
             <a href="javascript:;"
-               @click="showParam(record.param)">点击查看</a>
+               @click="showAttendance(record.param)">点击查看</a>
           </span>
         </a-table>
       </a-tab-pane>
@@ -82,13 +82,13 @@ const columns = [
   },
   {
     title: "考勤状态",
-    dataIndex: "attanceStatus",
+    dataIndex: "attendanceStatus",
     width: "10%",
     align: "center"
   },
   {
     title: "考勤人数",
-    dataIndex: "attanceNumber",
+    dataIndex: "attendanceNumber",
     width: "10%",
     align: "center"
   },
@@ -103,7 +103,7 @@ const columns = [
 ];
 
 export default {
-  name: "CourseAttanceListPage",
+  name: "CourseAttendanceListPage",
   data() {
     return {
       data: [],
@@ -152,8 +152,8 @@ export default {
           courseAddress: "研究院中507",
           courseTime: "2018-11-12 14:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "进行中",
-          attanceNumber: "160/182"
+          attendanceStatus: "进行中",
+          attendanceNumber: "160/182"
         },
         {
           courseNumber: "H89384564",
@@ -163,8 +163,8 @@ export default {
           courseAddress: "研究院中517",
           courseTime: "2018-11-13 10:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "未开始",
-          attanceNumber: "0/182"
+          attendanceStatus: "未开始",
+          attendanceNumber: "0/182"
         },
         {
           courseNumber: "H7987431",
@@ -174,8 +174,8 @@ export default {
           courseAddress: "G楼105",
           courseTime: "2018-11-14 10:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "未开始",
-          attanceNumber: "0/182"
+          attendanceStatus: "未开始",
+          attendanceNumber: "0/182"
         },
         {
           courseNumber: "H7456514",
@@ -185,8 +185,8 @@ export default {
           courseAddress: "研究院中517",
           courseTime: "2018-11-15 2:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "未开始",
-          attanceNumber: "0/182"
+          attendanceStatus: "未开始",
+          attendanceNumber: "0/182"
         },
         {
           courseNumber: "H21389514",
@@ -196,8 +196,8 @@ export default {
           courseAddress: "M楼301",
           courseTime: "2018-11-20 2:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "未开始",
-          attanceNumber: "0/182"
+          attendanceStatus: "未开始",
+          attendanceNumber: "0/182"
         },
         {
           courseNumber: "H55389514",
@@ -207,8 +207,8 @@ export default {
           courseAddress: "M楼107",
           courseTime: "2018-11-21 下午2:00",
           courseClass: "1611101-1611105",
-          attanceStatus: "未开始",
-          attanceNumber: "0/182"
+          attendanceStatus: "未开始",
+          attendanceNumber: "0/182"
         }
       ];
       this.data = data;
@@ -217,16 +217,10 @@ export default {
     },
 
     /**
-     * @description 查看参数
+     * @description 查看考勤情况
      * @param {Object} params 参数信息
      */
-    showParam(params = {}) {
-      this.$info({
-        title: "该条记录参数如下",
-        content: params,
-        onOk() {}
-      });
-    }
+    showAttendance(params = {}) {}
   }
 };
 </script>
